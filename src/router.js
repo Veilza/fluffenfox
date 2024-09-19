@@ -6,7 +6,7 @@ import HomeComponent from '@/components/Home/home.vue'
 import NotFoundComponent from '@/components/NotFound/notfound.vue'
 
 // Variables
-const baseTitle = "Fluffenfox - "
+const baseTitle = "Fluffenfox"
 
 // Define the routes
 const routes = [
@@ -16,7 +16,7 @@ const routes = [
     component: HomeComponent
   },
   {
-    name: '${baseTitle} / 404',
+    name: `${baseTitle} / 404`,
     path: '/:catchAll(.*)*',
     component: NotFoundComponent
   }
