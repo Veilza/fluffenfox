@@ -30,9 +30,16 @@ const router = createRouter({
 
 // Handle events that happen before loading the next page
 router.beforeEach((to, from, next) => {
-  // Redirect to site2.com
-  window.location.href = 'https://fluffenfox.straw.page/'
-  return
+  if (to.href.match(/\/#/)) {
+    router.push(to.href.replace(/\#\//, ''))
+  }
+
+  // Handle updating the page title
+  document.title = to.name ? to.name : baseTitle
+  document.head.querySelector("[property='og:title'][content]").content = to.name ? to.name : baseTitle
+
+  // Tell the router to go to the next page
+  next()
 })
 
 export default router
